@@ -1,3 +1,22 @@
+# How to run
+To grant ansible access to remote boxes, add private key to your ssh agent:
+
+```bash
+ssh-add ~/.ssh/sensu.pem
+ssh-add -l
+```
+
+To set up sensu-master box, run ansible playbook:
+```bash
+ansible-playbook -i prod sensu.yml
+```
+
+To set up server boxes, run ansible playbook:
+
+```bash
+ansible-playbook -i prod sensu_server.yml
+```
+
 # Challenge - (2 hours)
 Sensu is an open source monitoring application that allows you to monitor any 
 number of servers and services. It offers many community written plugins like 
