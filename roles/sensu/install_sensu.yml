@@ -1,0 +1,23 @@
+- name: Download key
+  apt_key:
+    url: https://sensu.global.ssl.fastly.net/apt/pubkey.gpg
+    state: present
+  become: true
+
+- name: copy sensu.list
+  shell: echo "deb     https://sensu.global.ssl.fastly.net/apt trusty main" >> /etc/apt/sources.list.d/sensu.list
+  become: true
+
+- name: Install Sensu
+  apt:
+    name: sensu
+    update_cache: yes
+    state: latest
+  become: true
+
+- name: Install Uchiwa
+  apt:
+    name: uchiwa
+    update_cache: yes
+    state: latest
+  become: true

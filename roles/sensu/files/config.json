@@ -1,0 +1,12 @@
+{
+ "rabbitmq": {
+   "host": "127.0.0.1",
+   "vhost": "/",
+   "user": "guest",
+   "password": "guest"
+ },
+ "redis": {
+   "host": "127.0.0.1",
+   "port": 6379
+ }
+}

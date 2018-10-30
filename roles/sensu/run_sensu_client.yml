@@ -1,0 +1,6 @@
+- name: Start sensu client
+  service:
+    name: sensu-client
+    state: started
+    enabled: true
+  become: true

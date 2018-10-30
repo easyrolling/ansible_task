@@ -1,0 +1,17 @@
+- name: Install Pip
+  command: pip --version
+  register: pip_version_output
+  ignore_errors: yes
+  changed_when: false
+
+- name: Download get-pip.py
+  get_url: url=https://bootstrap.pypa.io/get-pip.py
+           dest=/tmp/get-pip.py
+  when: pip_version_output is failed
+
+- name: Install pip
+  command: "python get-pip.py"
+  when:  pip_version_output is failed
+  args:
+    chdir: /tmp
+  become: true

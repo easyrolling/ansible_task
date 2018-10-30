@@ -1,0 +1,3 @@
+- pip:
+   name: docker-py
+  become: true

@@ -1,0 +1,3 @@
+- name: pull redis
+  docker_image:
+    name: redis

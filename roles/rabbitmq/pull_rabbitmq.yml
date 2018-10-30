@@ -1,0 +1,3 @@
+- name: pull rabbitmq
+  docker_image:
+    name: rabbitmq

@@ -1,0 +1,20 @@
+---
+- name: Prepare Master
+  hosts: sensu_master
+  user: ubuntu
+  become: false
+  gather_facts: false
+
+  tasks:
+  - include: roles/common/install_python.yml
+  - include: roles/common/install_pip.yml
+  - include: roles/docker/install_docker.yml
+  - include: roles/docker/install_docker-py.yml
+  - include: roles/rabbitmq/pull_rabbitmq.yml
+  - include: roles/rabbitmq/run_rabbitmq.yml
+  - include: roles/redis/pull_redis.yml
+  - include: roles/redis/run_redis.yml
+  - include: roles/sensu/install_sensu.yml
+  - include: roles/sensu/run_sensu.yml
+  - include: roles/sensu/run_sensu_client.yml
+

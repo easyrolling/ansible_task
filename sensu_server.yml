@@ -1,0 +1,15 @@
+---
+- name: Prepare Servers
+  hosts: servers
+  user: ubuntu
+  become: false
+  gather_facts: false
+
+  tasks:
+  - include: roles/common/install_python.yml
+  - include: roles/common/install_pip.yml
+  - include: roles/docker/install_docker.yml
+  - include: roles/docker/install_docker-py.yml
+  - include: roles/sensu/install_sensu.yml
+  - include: roles/sensu/copy_client_config.yml
+  - include: roles/sensu/run_sensu_client.yml

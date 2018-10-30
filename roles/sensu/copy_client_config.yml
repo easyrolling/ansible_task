@@ -1,0 +1,8 @@
+- name: copy sensu client config file
+  copy:
+    src: roles/sensu/files/client_config.json
+    dest: /etc/sensu/config.json
+    owner: sensu
+    group: sensu
+    mode: 0755
+  become: true

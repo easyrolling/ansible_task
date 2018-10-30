@@ -1,0 +1,38 @@
+- name: copy config file
+  copy:
+    src: roles/sensu/files/config.json
+    dest: /etc/sensu/
+    owner: sensu
+    group: sensu
+    mode: 0755
+  become: true
+
+- name: Start sensu server
+  service:
+    name: sensu-server
+    state: started
+    enabled: true
+  become: true
+
+- name: Start sensu API
+  service:
+    name: sensu-api
+    state: started
+    enabled: true
+  become: true
+
+- name: copy uchiwa config file
+  copy:
+    src: roles/sensu/files/uchiwa.json
+    dest: /etc/sensu/
+    owner: sensu
+    group: sensu
+    mode: 0755
+  become: true
+
+- name: Start uchiwa
+  service:
+    name: uchiwa
+    state: started
+    enabled: true
+  become: true

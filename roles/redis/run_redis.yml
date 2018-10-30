@@ -1,0 +1,7 @@
+- name: Create and start rabbitmq container
+  docker_container:
+    name: myredis
+    image: redis
+    hostname: redis1
+    restart_policy: always
+    published_ports: 127.0.0.1:6379:6379

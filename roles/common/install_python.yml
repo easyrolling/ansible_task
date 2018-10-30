@@ -1,0 +1,9 @@
+- name: Update APT cache
+  raw: apt-get update
+  become: True
+  changed_when: false
+
+- name: Install python
+  raw: apt-get install -yq python
+  become: True
+  changed_when: false

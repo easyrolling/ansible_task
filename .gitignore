@@ -1,0 +1,6 @@
+.idea
+*.retry
+.terraform
+config.tf
+terraform
+terra.inv
